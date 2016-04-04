@@ -1,0 +1,258 @@
+﻿<Window x:Class="LagerLista.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lager lista" Height="700" Width="1000" Closing="Window_Closing" MinWidth="1000" MinHeight="700" Icon="Icons-Land-Transport-Lorry.ico">
+    <Grid>
+        <TabControl Margin="10,10,0,0" Background="#FF81DEF9" FontSize="20">
+            <TabItem Header="   Početna   ">
+                <Grid>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="JD DELOVI doo" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" />
+                        <Label Content="Doža Đerđa 19, 21000 Novi Sad" />
+                        <Label Content="021/6310-565" HorizontalAlignment="Center" />
+                        <Label Content="jd.delovi@gmail.com" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Proizvodi  ">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition  Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="datagridP" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,12,0,0" VerticalGridLinesBrush="Gray" IsReadOnly="True" MaxHeight="750" MouseDoubleClick="datagridP_MouseDoubleClick" />
+                    <StackPanel Grid.Column="1" Margin="5,30,15,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="šifra: "/>
+                            <Label Name="sifraIzmeni" FontWeight="Bold" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="naziv: " />
+                            <TextBox Name="nazivIzmeni" MinWidth="300" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="količina: " />
+                            <Label Name="kolicinaIzmeni" FontWeight="Bold" />
+                            <Label Name="jedinicaIzmeni" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="cena: " />
+                            <TextBox Name="cenaIzmeni" MinWidth="300" MaxLength="19" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="proIzmenipro" Content="Izmeni" FontWeight="Bold" HorizontalAlignment="Left" Margin="130,0,0,0" Click="proIzmenipro_Click" />
+                            <Button Name="proIzbrisipro" Content="Izbriši" FontWeight="Bold" Margin="40,0,0,0" Click="proIzbrisipro_Click" />
+                        </StackPanel>
+                        <Button Name="prikKalk" HorizontalAlignment="Center" Margin="0,40,0,0" Padding="7,4" Click="prikKalk_Click">
+                            <TextBlock TextWrapping="Wrap" FontWeight="Bold" FontSize="20" TextAlignment="Center">Prikaži karticu</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="    Kupci    ">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <DataGrid x:Name="datagridK" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0" VerticalGridLinesBrush="Gray" IsReadOnly="True" MaxHeight="750" HorizontalAlignment="Center" />
+                        <Button x:Name="obrisiK" Content="Obriši kupca" HorizontalAlignment="Center" Margin="0,20,0,0" Padding="5,3" FontWeight="SemiBold" Click="obrisiK_Click" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <Label x:Name="labelImeK" Content="Naziv kupca" Margin="15,12,0,0" FontSize="16" FontWeight="Bold" Padding="5,5,5,1" />
+                        <TextBox x:Name="textboxImeK" Margin="15,0,10,0" MaxLength="50" FontSize="18" />
+                        <Label x:Name="labelAdr" Content="Adresa" Margin="15,8,0,0" FontSize="16" FontWeight="Bold" Padding="5,5,5,1" />
+                        <TextBox x:Name="textboxAdr" Margin="15,0,10,0" MaxLength="50" FontSize="18" />
+                        <Label x:Name="labelMesto" Content="Mesto" Margin="15,8,0,0" FontSize="16" FontWeight="Bold" Padding="5,5,5,1" />
+                        <TextBox x:Name="textboxMesto" Margin="15,0,10,0" MaxLength="50" FontSize="18" />
+                        <Label x:Name="labelRacun" Content="Žiro racun" Margin="15,8,0,0" FontSize="16" FontWeight="Bold" Padding="5,5,5,1" />
+                        <TextBox x:Name="textboxRacun" Margin="15,0,10,0" MaxLength="30" FontSize="18" />
+                        <Label x:Name="labelPib" Content="PIB" Margin="15,8,0,0" FontSize="16" FontWeight="Bold" Padding="5,5,5,1" />
+                        <TextBox x:Name="textboxPib" Margin="15,0,10,0" MaxLength="20" FontSize="18" />
+                        <Button x:Name="dodajK" Content="Dodaj kupca" Margin="0,40,0,0" HorizontalAlignment="Center" Padding="5,3" FontWeight="SemiBold" FontSize="20" Click="dodajK_Click"  />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="    Ulaz     ">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelSifra" Content="Šifra" Margin="10,0,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
+                    <Label x:Name="labelIme" Content="Naziv" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,0,5,0" FontSize="18" FontWeight="Bold"/>
+                    <Label x:Name="labelCena" Content="Cena (din)" Grid.Row="2" VerticalAlignment="Center" Margin="10,0,5,0" FontSize="18" FontWeight="Bold"/>
+                    <Label x:Name="labelKol" Content="Količina" Grid.Row="3" VerticalAlignment="Center" Margin="10,0,5,0" FontSize="18" FontWeight="Bold"/>
+                    <Label x:Name="labelJed" Content="Jed. mere" Grid.Row="4" VerticalAlignment="Center" RenderTransformOrigin="-0.683,0.499" Margin="10,0,5,0" FontSize="18" FontWeight="Bold"/>
+                    <Button x:Name="dodajP" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="106" Height="Auto" Padding="4" Margin="10,0" Click="dodajP_Click">
+                        <TextBlock x:Name="textblock1" TextWrapping="Wrap" FontWeight="SemiBold" FontSize="16" TextAlignment="Center">Dodaj proizvod</TextBlock>
+                    </Button>
+                    <TextBox x:Name="textboxSifra" Grid.Column="1" VerticalAlignment="Center" Height="50" Margin="0" FontSize="27" TextWrapping="Wrap" MaxLength="20" BorderThickness="2" BorderBrush="#FF3196EA" />
+                    <TextBox x:Name="textboxIme" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="27" Height="50" MaxLength="50" TextWrapping="Wrap" BorderThickness="2" BorderBrush="#FF3196EA" />
+                    <TextBox x:Name="textboxCena" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" FontSize="27" Width="200" Height="50" TextWrapping="Wrap" MaxLength="19" BorderThickness="2" BorderBrush="#FF3196EA" />
+                    <TextBox x:Name="textboxKol" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" FontSize="27" Width="120" Height="50" TextWrapping="Wrap" MaxLength="8" BorderThickness="2" BorderBrush="#FF3196EA" />
+                    <ComboBox x:Name="combobJedMere" Grid.Row="4" Grid.Column="1" Width="140" Height="50" HorizontalAlignment="Left" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="20" VerticalContentAlignment="Center" IsEditable="True" Text="kom">
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">kom</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">par</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">garnitura</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">metar</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">m&#179;</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">kg</ComboBoxItem>
+                        <ComboBoxItem HorizontalContentAlignment="Center" VerticalContentAlignment="Center">litar</ComboBoxItem>
+                    </ComboBox>
+                    <StackPanel Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" Background="#FFF8FBB3" Margin="60,0,0,30" >
+                        <Label Content="Dobavljač" FontStyle="Italic" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="naziv:" Margin="10,0,15,0" />
+                            <TextBox Name="imeDobavljaca" MaxLength="50" TextWrapping="Wrap" BorderThickness="2" BorderBrush="#FF3196EA" MinWidth="500" Margin="0,0,20,0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <Label Content="mesto:" Margin="10,0,5,0" />
+                            <TextBox Name="mestoDobavljaca" MaxLength="50" TextWrapping="Wrap" BorderThickness="2" BorderBrush="#FF3196EA" MinWidth="350" Margin="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,15">
+                            <Label Content="cena:" Margin="10,0,18,0" />
+                            <TextBox Name="cenaNabavke" MaxLength="50" TextWrapping="Wrap" BorderThickness="2" BorderBrush="#FF3196EA" MinWidth="350" Margin="0" />
+                            <Label Content="din" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="    Izlaz    " >
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                                <Label x:Name="labelSearch" Content="Pretraga:" FontSize="18" FontWeight="SemiBold" />
+                                <TextBox x:Name="searchP" FontSize="18" MinWidth="300" TextChanged="searchP_TextChanged" />
+                            </StackPanel>
+                            <DataGrid Name="datagridPS" MaxHeight="300" Margin="5" FontSize="16" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalGridLinesBrush="Gray" IsReadOnly="True" MouseDoubleClick="datagridPS_MouseDoubleClick" HorizontalAlignment="Center" />
+                            <Grid Margin="5,0,5,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Šifra:" />
+                                <TextBox Name="chosenPS" Grid.Column="1" IsEnabled="False" />
+                                <Label Content="Naziv:" Grid.Row="1" />
+                                <TextBox Name="chosenPN" Grid.Column="1" Grid.Row="1" Margin="0,2,0,0" IsEnabled="False" />
+                                <Label Content="Količina:" Grid.Row="2" />
+                                <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,2,0,0" Orientation="Horizontal" >
+                                    <TextBox Name="chosenPK" Width="60" IsEnabled="False" />
+                                    <Label Name="chosenJed" Margin="3,0,0,0" />
+                                    <Label Content="Rabat:" Margin="10,0,0,0" />
+                                    <TextBox Name="chosenRabat" Text="0" Width="60" IsEnabled="False" />
+                                    <Label Content="%" />
+                                </StackPanel>
+                                <Label Content="Cena:" Grid.Row="3" />
+                                <TextBox Name="chosenCena" Width="140" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" IsEnabled="False" />
+                                <Button Name="chose" Content="Dodaj" Grid.Column="2" Grid.RowSpan="3" Padding="7,1" Height="60" FontWeight="SemiBold" Margin="3,0,0,0" Click="chose_Click" />
+                            </Grid>
+                            <Label Content="ODABRANI PROIZVODI" HorizontalAlignment="Center" Margin="0,15,0,0" FontWeight="Bold" />
+                            <DataGrid x:Name="odabraniP" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" IsReadOnly="True" GridLinesVisibility="None" Margin="5,0,5,5" FontSize="14" BorderBrush="Red" BorderThickness="3" RowBackground="#FFEDF788" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,5,0">
+                                <Button x:Name="ponistiOdabrano" Content="Poništi" HorizontalContentAlignment="Center" Padding="8,5" FontWeight="Bold" Margin="0,0,15,0" Click="ponistiOdabrano_Click" />
+                                <Button x:Name="fakturiši" Content="Fakturisi" HorizontalContentAlignment="Center" Padding="8,5" FontWeight="Bold" Click="fakturisi_Click" />
+                            </StackPanel>
+                        </StackPanel>
+                        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="3" Background="Gray" />
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="8,0,0,0">
+                                <Label x:Name="labelSearchK" Content="Pretraga:" FontSize="18" FontWeight="SemiBold" />
+                                <TextBox x:Name="searchK" FontSize="18" MinWidth="300" TextChanged="searchK_TextChanged" />
+                            </StackPanel>
+                            <DataGrid Name="datagridKS" MaxHeight="300" Margin="8,5,5,5" FontSize="16" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalGridLinesBrush="Gray" IsReadOnly="True" MouseDoubleClick="datagridKS_MouseDoubleClick" HorizontalAlignment="Center" />
+                            <Grid Margin="8,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Ime:" />
+                                <TextBox Name="chosenK" Grid.Column="1" IsEnabled="False" />
+                                <Button x:Name="choseKup" Content="Dodaj" Grid.Column="2" Margin="3,0" Padding="5,3" FontWeight="SemiBold" Click="choseKup_Click" />
+                            </Grid>
+                            <Label Content="Kupac" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,100,0,0" />
+                            <Label Name="labelOdK" FontStyle="Italic" Margin="0,10,0,0" HorizontalContentAlignment="Center" FontSize="22" Content="" />
+                            <Button x:Name="cancelKu" Content="Poništi" HorizontalAlignment="Center" Padding="8,5" FontWeight="Bold" Click="cancelKu_Click" />
+                            <StackPanel Orientation="Horizontal" Margin="0,60,10,0" HorizontalAlignment="Right">
+                                <Label Content="PDV:" FontWeight="ExtraBold" />
+                                <TextBox x:Name="chosenPDV" Width="70" />
+                                <Label Content="%" FontWeight="ExtraBold" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem x:Name="kalkulacije" Header="  Kartica   ">
+                <StackPanel MaxWidth="520">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label x:Name="proizvodKalk" FontSize="24" FontWeight="Bold" />
+                        <Label Content="sifra:" VerticalAlignment="Center" />
+                        <Label x:Name="sifraKalk" FontSize="24" />
+                    </StackPanel>
+                    <DataGrid x:Name="datagridUlazi" MaxHeight="400" FontSize="16" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalGridLinesBrush="Gray" IsReadOnly="True" Margin="0,0,5,0" HorizontalAlignment="Center" MouseDoubleClick="datagridUlazi_MouseDoubleClick" />
+                    <Grid x:Name="gridKartIzm" HorizontalAlignment="Center" Margin="0,30,0,0" Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="datum:" FontWeight="SemiBold" />
+                        <TextBox x:Name="karticaDatum" Grid.Column="1" MinWidth="150" HorizontalAlignment="Left" />
+                        <Label Content="firma:" Grid.Row="1" FontWeight="SemiBold" />
+                        <TextBox x:Name="karticaFirma" Grid.Row="1" Grid.Column="1" MinWidth="200" HorizontalAlignment="Left" />
+                        <Label Content="mesto:" Grid.Column="2" Grid.Row="1" FontWeight="SemiBold" HorizontalAlignment="Right" />
+                        <TextBox x:Name="karticaMesto" Grid.Row="1" Grid.Column="3" MinWidth="150" />
+                        <Label x:Name="karticaUI" Content="ulaz/izlaz:" Grid.Row="2" FontWeight="SemiBold" />
+                        <TextBox x:Name="ulazIzlaz" Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Left" />
+                        <Label Content="cena:" Grid.Row="2" Grid.Column="2" FontWeight="SemiBold" HorizontalAlignment="Left" />
+                        <TextBox x:Name="karticaCena" Grid.Row="2" Grid.Column="3" Width="120" HorizontalAlignment="Left" />
+                        <Label Content="rabat:" Grid.Row="3" FontWeight="SemiBold" />
+                        <TextBox x:Name="karticaRabat" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Width="50" />
+                        <Label Content="zaliha:" Grid.Row="3" Grid.Column="2" FontWeight="SemiBold" />
+                        <TextBox x:Name="karticaZaliha" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" Width="100" />
+                        <Button x:Name="karticaIzmeni" Content="Izmeni" Grid.Row="4" HorizontalAlignment="Center" Padding="8,1" FontWeight="Bold" Margin="0,15,0,0" Click="karticaIzmeni_Click" />
+                        <Button x:Name="karticaObrisi" Content="Obriši" FontWeight="Bold" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="8,1" Click="karticaObrisi_Click" />
+                        <Button x:Name="karticaPonisti" Content="Poništi" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="8,1" FontWeight="Bold" Click="karticaPonisti_Click" />
+                        <Label x:Name="karticaId" Grid.Column="2" Visibility="Hidden" />
+                        <Label x:Name="karticaSif" Grid.Column="3" Visibility="Hidden" />
+                        <TextBlock Text="NAPOMENA: Ukoliko naknadno menjate na kartici količinu ulaza ili izlaza koji nije poslednji, može doći do nepravilnih količina na stanju. Nakon što izmenite količinu proizvoda, pobrinite se da ostala stanja odgovaraju izmenjenom stanju." TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="14" FontWeight="Bold" FontStyle="Italic" Grid.Row="5" Grid.ColumnSpan="4" />
+                    </Grid>
+                    <Button x:Name="resetUlaze" Content="Resetuj" HorizontalAlignment="Center" Margin="0,60,0,0" Padding="30,1" Click="resetUlaze_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
