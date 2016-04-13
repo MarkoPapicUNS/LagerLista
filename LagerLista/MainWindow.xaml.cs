@@ -172,7 +172,7 @@ namespace LagerLista
             insertP.CommandText = "INSERT INTO proizvodi (sifra, ime, kolicina, jedinica, cena) VALUES (@sifra, @ime, @kolicina, @jedinica, @cena)";
             insertP.Parameters.Add(new SqlCeParameter("@sifra", SqlDbType.NVarChar, 20, "sifra"));
             insertP.Parameters.Add(new SqlCeParameter("@ime", SqlDbType.NVarChar, 50, "ime"));
-            insertP.Parameters.Add(new SqlCeParameter("@kolicina", SqlDbType.BigInt, 8, "kolicina"));
+            insertP.Parameters.Add(new SqlCeParameter("@kolicina", SqlDbType.Float, 8, "kolicina"));
             insertP.Parameters.Add(new SqlCeParameter("@jedinica", SqlDbType.NVarChar, 10, "jedinica"));
             insertP.Parameters.Add(new SqlCeParameter("@cena", SqlDbType.Money, 19, "cena"));
             daProizvodi.InsertCommand = insertP;
@@ -195,11 +195,11 @@ namespace LagerLista
             insertU.Parameters.Add(new SqlCeParameter("@datum", SqlDbType.NVarChar, 20, "datum"));
             insertU.Parameters.Add(new SqlCeParameter("@firma", SqlDbType.NVarChar, 50, "firma"));
             insertU.Parameters.Add(new SqlCeParameter("@mesto", SqlDbType.NVarChar, 50, "mesto"));
-            insertU.Parameters.Add(new SqlCeParameter("@ulaz", SqlDbType.BigInt, 8, "ulaz"));
-            insertU.Parameters.Add(new SqlCeParameter("@izlaz", SqlDbType.BigInt, 8, "izlaz"));
+            insertU.Parameters.Add(new SqlCeParameter("@ulaz", SqlDbType.Float, 8, "ulaz"));
+            insertU.Parameters.Add(new SqlCeParameter("@izlaz", SqlDbType.Float, 8, "izlaz"));
             insertU.Parameters.Add(new SqlCeParameter("@cena", SqlDbType.Money, 19, "cena"));
             insertU.Parameters.Add(new SqlCeParameter("@rabat", SqlDbType.NVarChar, 4, "rabat"));
-            insertU.Parameters.Add(new SqlCeParameter("@zaliha", SqlDbType.BigInt, 8, "zaliha"));
+            insertU.Parameters.Add(new SqlCeParameter("@zaliha", SqlDbType.Float, 8, "zaliha"));
             insertU.Parameters.Add(new SqlCeParameter("@sifraPr", SqlDbType.NVarChar, 20, "sifraPr"));
             daUlazi.InsertCommand = insertU;
         }
@@ -212,7 +212,7 @@ namespace LagerLista
             updateP.CommandText = "UPDATE proizvodi SET sifra=@sifra, ime=@ime, kolicina=@kolicina, jedinica=@jedinica, cena=@cena WHERE id=@id";
             updateP.Parameters.Add(new SqlCeParameter("@sifra", SqlDbType.NVarChar, 20, "sifra"));
             updateP.Parameters.Add(new SqlCeParameter("@ime", SqlDbType.NVarChar, 50, "ime"));
-            updateP.Parameters.Add(new SqlCeParameter("@kolicina", SqlDbType.BigInt, 8, "kolicina"));
+            updateP.Parameters.Add(new SqlCeParameter("@kolicina", SqlDbType.Float, 8, "kolicina"));
             updateP.Parameters.Add(new SqlCeParameter("@jedinica", SqlDbType.NVarChar, 10, "jedinica"));
             updateP.Parameters.Add(new SqlCeParameter("@cena", SqlDbType.Money, 19, "cena"));
             updateP.Parameters.Add(new SqlCeParameter("@id", SqlDbType.Int, 4, "id"));
@@ -244,8 +244,8 @@ namespace LagerLista
         {
             string sifrap = textboxSifra.Text;
             string imep = textboxIme.Text;
-            int kolicinap = 0;
-            bool x = Int32.TryParse(textboxKol.Text, out kolicinap);
+            double kolicinap = 0;
+            bool x = Double.TryParse(textboxKol.Text, out kolicinap);
             string jedinicap = combobJedMere.Text;
             decimal cena = 0;
             bool d = Decimal.TryParse(textboxCena.Text, out cena);
@@ -339,7 +339,7 @@ namespace LagerLista
                         {
                             try
                             {
-                                int rowkol = Int32.Parse(row["kolicina"].ToString());
+                                double rowkol = Double.Parse(row["kolicina"].ToString());
                                 rowkol += kolicinap;
                                 row["kolicina"] = rowkol;
                                 daProizvodi.Update(ds.Tables[0]);
@@ -947,7 +947,7 @@ namespace LagerLista
                         flag = 19;
                         foreach (DataRow kupFakOrig in ds.Tables[0].Rows)
                         {
-                            if ((kupFak["sifra"].ToString() == kupFakOrig["sifra"].ToString()) && (Int32.Parse(kupFak["kol"].ToString()) <= Int32.Parse(kupFakOrig["kolicina"].ToString())))
+                            if ((kupFak["sifra"].ToString() == kupFakOrig["sifra"].ToString()) && (Double.Parse(kupFak["kol"].ToString()) <= Double.Parse(kupFakOrig["kolicina"].ToString())))
                             {
                                 flag = 29;
                             }
@@ -1015,7 +1015,7 @@ namespace LagerLista
                                 {
                                     if (skidanjeRow["sifra"].ToString() == skidanjeOrig["sifra"].ToString())
                                     {
-                                        skidanjeOrig["kolicina"] = Int32.Parse(skidanjeOrig["kolicina"].ToString()) - Int32.Parse(skidanjeRow["kol"].ToString());
+                                        skidanjeOrig["kolicina"] = Double.Parse(skidanjeOrig["kolicina"].ToString()) - Double.Parse(skidanjeRow["kol"].ToString());
 
                                         //ovde pocinje
                                         DataRow izlaziRow = ds.Tables[2].NewRow();
@@ -1023,7 +1023,7 @@ namespace LagerLista
                                         izlaziRow["firma"] = labelOdK.Content.ToString();
                                         izlaziRow["mesto"] = mestoKup;
                                         izlaziRow["ulaz"] = DBNull.Value;
-                                        izlaziRow["izlaz"] = Int32.Parse(skidanjeRow["kol"].ToString());
+                                        izlaziRow["izlaz"] = Double.Parse(skidanjeRow["kol"].ToString());
                                         izlaziRow["cena"] = Decimal.Parse(skidanjeRow["cena"].ToString());
                                         if (Decimal.Parse(skidanjeRow["rabat"].ToString().TrimEnd('%')) == 0)
                                         {
@@ -1033,7 +1033,7 @@ namespace LagerLista
                                         {
                                             izlaziRow["rabat"] = skidanjeRow["rabat"];
                                         }
-                                        izlaziRow["zaliha"] = Int32.Parse(skidanjeOrig["kolicina"].ToString());
+                                        izlaziRow["zaliha"] = Double.Parse(skidanjeOrig["kolicina"].ToString());
                                         izlaziRow["sifraPr"] = skidanjeRow["sifra"].ToString().Trim();
                                         ds.Tables[2].Rows.Add(izlaziRow);
                                         daUlazi.Update(ds.Tables[2]);

@@ -340,6 +340,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{5ACE8B42-461E-499C-B31E-376C195A1BE2}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>LagerLista.Content_Files</td><td>{D33215BE-CC6A-4331-8DDE-E7A3CE5863FD}</td><td>INSTALLDIR</td><td>2</td><td/><td>lagerlista.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>LagerLista.Primary_output</td><td>{37FE20C5-084F-4F02-9F95-55BA7BCBC15C}</td><td>INSTALLDIR</td><td>2</td><td/><td>lagerlista.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{1E58C8B4-8ADB-4476-B10E-650312249E50}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1051,6 +1052,7 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>NewComponent1</td></row>
 	</table>
 
@@ -1866,6 +1868,7 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>LagerLista.Content_Files</td></row>
 		<row><td>AlwaysInstall</td><td>LagerLista.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
@@ -2028,6 +2031,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_AAB0BD6D_9CAE_489C_B1A5_4989196CCD45_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>LagerLista.Content_Files</td><td/><td/><td>_2850DF3D_FD8E_4190_91C7_5A5BDF7CFF37_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>LagerLista.Primary_output</td><td/><td/><td>_4AB34AA4_FD33_4832_BCF2_6BEEB7ACD21E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_4D94F54F_B9D8_4B48_8183_E770B75E1452_FILTER</td><td/><td/><td/><td/></row>
@@ -2340,12 +2344,6 @@
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
 		<row><td>WindowsFolder</td><td/><td/><td>1</td></row>
-	</table>
-
-	<table name="ISPowerShellWrap">
-		<col key="yes" def="s72">Action_</col>
-		<col key="yes" def="s72">Name</col>
-		<col def="S0">Value</col>
 	</table>
 
 	<table name="ISProductConfiguration">
@@ -3822,6 +3820,12 @@
 		<col def="s255">Value</col>
 	</table>
 
+	<table name="ISWSEWrap">
+		<col key="yes" def="s72">Action_</col>
+		<col key="yes" def="s72">Name</col>
+		<col def="S0">Value</col>
+	</table>
+
 	<table name="ISXmlElement">
 		<col key="yes" def="s72">ISXmlElement</col>
 		<col def="s72">ISXmlFile_</col>
@@ -3863,7 +3867,11 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
-		<row><td>UNINST_Uninstall_L_32078A08C35942BB81311B3E5E0AC314.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>UNINST_Uninstall_L_413B6B5190974A69A4E54F4DE3DF272A.exe</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\Uninstall.ico</td><td>0</td></row>
+		<row><td>_2ADA194CFDCC49A9B6FE2437593E8BEA.exe</td><td/><td>D:\LagerLista\LagerLista\bin\Debug\LagerLista.exe</td><td>0</td></row>
+		<row><td>_8942F31AB7364D26972CF6AD5426DC82.exe</td><td/><td>D:\LagerLista\LagerLista\bin\Debug\LagerLista.exe</td><td>0</td></row>
+		<row><td>_B6A91E65C73C4DFB9013D65F72C24DB5.exe</td><td/><td>D:\LagerLista\LagerLista\bin\Debug\LagerLista.exe</td><td>0</td></row>
+		<row><td>_FEFD0DA17CB14D11AE1636145DBE90E0.exe</td><td/><td>D:\LagerLista\LagerLista\bin\Debug\LagerLista.exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3996,7 +4004,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{FB186B9B-2A48-4A25-A219-175E168CFC4B}</td></row>
 		<row><td>ISUSSignature</td><td>{481A95E9-4C1D-4713-9C4F-E3C3ADD1D554}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewProject</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewProject,viewISToday,viewAppFiles,viewRegistry,viewObjects,viewUI,viewSystemSearch,viewRelease,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewServices,viewCustomActions</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4008,7 +4016,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SaveAsSchema</td><td/></row>
 		<row><td>SccEnabled</td><td>0</td></row>
 		<row><td>SccPath</td><td/></row>
-		<row><td>SchemaVersion</td><td>774</td></row>
+		<row><td>SchemaVersion</td><td>776</td></row>
 		<row><td>Type</td><td>MSIE</td></row>
 	</table>
 
@@ -4534,7 +4542,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>UNINST_Uninstall_Lager_lista</td><td>lager_lista</td><td>UNINST|Uninstall Lager lista</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {5057E8EA-582C-49DB-87E0-E6B2E5231317}</td><td/><td/><td>UNINST_Uninstall_L_32078A08C35942BB81311B3E5E0AC314.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>UNINST_Uninstall_Lager_lista</td><td>lager_lista</td><td>UNINST|Uninstall Lager lista</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {5057E8EA-582C-49DB-87E0-E6B2E5231317}</td><td/><td/><td>UNINST_Uninstall_L_413B6B5190974A69A4E54F4DE3DF272A.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>lager_lista</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>LagerLista.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>LagerLista.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
@@ -5142,9 +5150,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISPathVariable</td><td>TestValue</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The test value of the path variable.</td></row>
 		<row><td>ISPathVariable</td><td>Type</td><td>N</td><td/><td/><td/><td/><td/><td>1;2;4;8</td><td>The type of the path variable.</td></row>
 		<row><td>ISPathVariable</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The value of the path variable.</td></row>
-		<row><td>ISPowerShellWrap</td><td>Action_</td><td>N</td><td/><td/><td>CustomAction</td><td>1</td><td>Identifier</td><td/><td>Foreign key into CustomAction table</td></row>
-		<row><td>ISPowerShellWrap</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>Property associated with this Action</td></row>
-		<row><td>ISPowerShellWrap</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Value associated with this Property</td></row>
 		<row><td>ISProductConfiguration</td><td>GeneratePackageCode</td><td>Y</td><td/><td/><td/><td/><td>Number</td><td>0;1</td><td>Indicates whether or not to generate a package code.</td></row>
 		<row><td>ISProductConfiguration</td><td>ISProductConfiguration</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>The name of the product configuration.</td></row>
 		<row><td>ISProductConfiguration</td><td>ProductConfigurationFlags</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Product configuration (release) flags.</td></row>
@@ -5382,6 +5387,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISVirtualShortcut</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Property name</td></row>
 		<row><td>ISVirtualShortcut</td><td>Shortcut_</td><td>N</td><td/><td/><td>Shortcut</td><td>1</td><td>Identifier</td><td/><td>Foreign key into Shortcut table.</td></row>
 		<row><td>ISVirtualShortcut</td><td>Value</td><td>N</td><td/><td/><td/><td/><td/><td/><td>Property value</td></row>
+		<row><td>ISWSEWrap</td><td>Action_</td><td>N</td><td/><td/><td>CustomAction</td><td>1</td><td>Identifier</td><td/><td>Foreign key into CustomAction table</td></row>
+		<row><td>ISWSEWrap</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>Property associated with this Action</td></row>
+		<row><td>ISWSEWrap</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Value associated with this Property</td></row>
 		<row><td>ISXmlElement</td><td>Content</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Element contents</td></row>
 		<row><td>ISXmlElement</td><td>ISAttributes</td><td>Y</td><td/><td/><td/><td/><td>Number</td><td/><td>Internal XML element attributes</td></row>
 		<row><td>ISXmlElement</td><td>ISXmlElement</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key, non-localized, internal token for Xml element</td></row>
