@@ -99,9 +99,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BazePodataka\Baza1.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="BazePodataka\Baza1.sdf" />
     <Resource Include="Icons-Land-Transport-Lorry.ico" />
   </ItemGroup>
   <ItemGroup />

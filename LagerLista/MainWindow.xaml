@@ -15,7 +15,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="  Proizvodi  ">
-                <Grid>
+                <Grid ScrollViewer.HorizontalScrollBarVisibility="Visible">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition  Width="Auto"/>
@@ -56,7 +56,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <DataGrid x:Name="datagridK" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0" VerticalGridLinesBrush="Gray" IsReadOnly="True" MaxHeight="750" HorizontalAlignment="Center" />
+                        <DataGrid x:Name="datagridK" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0" VerticalGridLinesBrush="Gray" IsReadOnly="True" MaxHeight="500" HorizontalAlignment="Center" />
                         <Button x:Name="obrisiK" Content="Obriši kupca" HorizontalAlignment="Center" Margin="0,20,0,0" Padding="5,3" FontWeight="SemiBold" Click="obrisiK_Click" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -212,7 +212,7 @@
                         <Label Content="sifra:" VerticalAlignment="Center" />
                         <Label x:Name="sifraKalk" FontSize="24" />
                     </StackPanel>
-                    <DataGrid x:Name="datagridUlazi" MaxHeight="400" FontSize="16" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalGridLinesBrush="Gray" IsReadOnly="True" Margin="0,0,5,0" HorizontalAlignment="Center" MouseDoubleClick="datagridUlazi_MouseDoubleClick" />
+                    <DataGrid x:Name="datagridUlazi" MaxHeight="200" FontSize="16" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalGridLinesBrush="Gray" IsReadOnly="True" Margin="0,0,5,0" HorizontalAlignment="Center" MouseDoubleClick="datagridUlazi_MouseDoubleClick" />
                     <Grid x:Name="gridKartIzm" HorizontalAlignment="Center" Margin="0,30,0,0" Visibility="Hidden">
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -247,7 +247,7 @@
                         <Button x:Name="karticaPonisti" Content="Poništi" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="8,1" FontWeight="Bold" Click="karticaPonisti_Click" />
                         <Label x:Name="karticaId" Grid.Column="2" Visibility="Hidden" />
                         <Label x:Name="karticaSif" Grid.Column="3" Visibility="Hidden" />
-                        <TextBlock Text="NAPOMENA: Ukoliko naknadno menjate na kartici količinu ulaza ili izlaza koji nije poslednji, može doći do nepravilnih količina na stanju. Nakon što izmenite količinu proizvoda, pobrinite se da ostala stanja odgovaraju izmenjenom stanju." TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="14" FontWeight="Bold" FontStyle="Italic" Grid.Row="5" Grid.ColumnSpan="4" />
+                        <!--<TextBlock Text="NAPOMENA: Ukoliko naknadno menjate na kartici količinu ulaza ili izlaza koji nije poslednji, može doći do nepravilnih količina na stanju. Nakon što izmenite količinu proizvoda, pobrinite se da ostala stanja odgovaraju izmenjenom stanju." TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="14" FontWeight="Bold" FontStyle="Italic" Grid.Row="5" Grid.ColumnSpan="4" />-->
                     </Grid>
                     <Button x:Name="resetUlaze" Content="Resetuj" HorizontalAlignment="Center" Margin="0,60,0,0" Padding="30,1" Click="resetUlaze_Click" />
                 </StackPanel>
